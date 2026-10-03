@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#070b18">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Yuri Shooter — jogo de moedas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Chakra+Petch:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="hero">
+        <div class="wrap">
+            <div>
+                <canvas data-a="logo" data-s=".75" width="215" height="125" aria-label="Logo Yuri22"></canvas>
+                <h1>Yuri <span>Shooter</span></h1>
+                <p class="lead">Mire, atire e estoure as moedas antes que elas cheguem até o Yuri22. Junte três ou mais
+                    moedas iguais.</p>
+                <a class="btn" href="#jogo" id="jogar">Jogar agora</a><br>
+                <button class="mute" id="mute" type="button">Som: ligado</button>
+            </div>
+            <div class="stage" id="jogo">
+                <canvas id="g" width="480" height="700" tabindex="0" aria-label="Área do jogo Yuri Shooter"></canvas>
+                <div class="ov" id="ov">
+                    <canvas id="splash" width="560" height="560" hidden aria-hidden="true"
+                        aria-label="Yuri22 comemorando a vitória"></canvas>
+                    <h2 id="ovt">Yuri22 entra em cena</h2>
+                    <p id="ovp">No computador: mire com o mouse e clique. No celular: arraste o dedo para mirar e solte
+                        para atirar.</p>
+                    <button class="btn" id="go" type="button">Começar</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="alt">
+        <div class="wrap two">
+            <h2 class="sec">Como jogar</h2>
+            <dl>
+                <dt><i class="c-cyan"></i>Mire</dt>
+                <dd>Mova o mouse ou arraste o dedo pela tela. Uma linha de pontos mostra o caminho da moeda, inclusive
+                    quando ela quica na parede.</dd>
+                <dt><i class="c-blue"></i>Atire</dt>
+                <dd>No computador, clique ou aperte Espaço (as setas esquerda e direita ajustam a mira). No celular,
+                    arraste o dedo para mirar e solte para atirar; soltar na faixa de baixo da tela cancela o tiro.</dd>
+                <dt><i class="c-gold"></i>Junte três</dt>
+                <dd>Grupos de três ou mais moedas iguais estouram. As que ficarem soltas caem e valem pontos em dobro.
+                </dd>
+                <dt><i class="c-purple"></i>Troque a moeda</dt>
+                <dd>Clique na moeda do canto inferior esquerdo, ou aperte X, para trocá-la pela que está pronta para
+                    atirar.</dd>
+                <dt><i class="c-gold"></i>Combos</dt>
+                <dd>Estourar moedas em tiros seguidos aumenta o combo e dá pontos extras. Errar um tiro zera a
+                    sequência.</dd>
+                <dt><i class="c-cyan"></i>Poderes</dt>
+                <dd>Cada moeda estourada enche a barra de poder. Quando ela completa, você ganha uma Bomba, que fica
+                    parada onde você a joga e explode tudo ao redor depois de 3 segundos, ou um Curinga, que assume o
+                    tipo das moedas em que encostar. Toque no ícone ao lado da moeda ou aperte C para ativar o poder e
+                    atire.</dd>
+                <dt><i class="c-pink"></i>Cuidado com o fundo</dt>
+                <dd>A cada cinco tiros sem estourar nada, uma nova fileira de moedas desce. Se elas passarem da linha
+                    vermelha, a partida acaba.</dd>
+            </dl>
+        </div>
+    </section>
+
+    <section>
+        <div class="wrap two">
+            <h2 class="sec">Conheça o Yuri22</h2>
+            <div>
+                <p class="char-desc">Ele reage ao que acontece na partida: entra em cena com faíscas, mira de costas,
+                    solta a moeda de punho fechado, se assusta quando uma fileira desce e, a cada fase vencida, faz o
+                    gesto especial de comemoração, com direito a coroa, energia e brilho nos óculos.</p>
+                <div class="poses">
+                    <figure><canvas data-a="avatar" data-s=".7" width="115" height="112"></canvas>
+                        <figcaption class="cap">Avatar</figcaption>
+                    </figure>
+                    <figure><canvas data-a="appear" data-s=".7" width="95" height="95"></canvas>
+                        <figcaption class="cap">Entrando</figcaption>
+                    </figure>
+                    <figure><canvas data-a="back" data-s=".7" width="56" height="110"></canvas>
+                        <figcaption class="cap">Mirando</figcaption>
+                    </figure>
+                    <figure><canvas data-a="shoot" data-s=".7" width="100" height="98"></canvas>
+                        <figcaption class="cap">Atirando</figcaption>
+                    </figure>
+                    <figure><canvas data-a="hurt" data-s=".7" width="84" height="98"></canvas>
+                        <figcaption class="cap">Susto</figcaption>
+                    </figure>
+                    <figure><canvas data-a="win" data-s="1" width="77" height="114"></canvas>
+                        <figcaption class="cap">Vitória</figcaption>
+                    </figure>
+                    <figure><canvas data-a="winv" data-s="1" width="102" height="131"></canvas>
+                        <figcaption class="cap">Gesto especial</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="alt">
+        <div class="wrap two">
+            <h2 class="sec">O que tem no jogo</h2>
+            <dl>
+                <dt><i class="c-blue"></i>Fases crescentes</dt>
+                <dd>Cada fase começa com mais fileiras de moedas e, a partir da fase 2, ganha um tipo novo: ouro, prata,
+                    azul, bronze e roxa.</dd>
+                <dt><i class="c-cyan"></i>Reação em cadeia</dt>
+                <dd>Estourar a moeda certa derruba um cacho inteiro de uma vez, e as moedas soltas valem pontos em
+                    dobro.</dd>
+                <dt><i class="c-purple"></i>Combos e poderes</dt>
+                <dd>Sequências de acertos valem pontos extras, e a barra de poder libera a Bomba e o Curinga para virar
+                    o jogo.</dd>
+                <dt><i class="c-pink"></i>Bomba com pavio</dt>
+                <dd>A bomba fica parada onde você a joga e explode depois de 3 segundos, com o Yuri22 gritando durante a
+                    contagem.</dd>
+                <dt><i class="c-gold"></i>Vozes, sons e recorde</dt>
+                <dd>Efeitos a cada tiro e a cada estouro, risada do Yuri22 nos combos x3 ou mais e uma fala especial nos
+                    combos x7, x10, x13 e assim por diante, além de reações na vitória e na derrota. Dá para desligar o
+                    som, e o melhor placar fica salvo no navegador.</dd>
+            </dl>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="wrap">
+            <h2>Quantas fases o Yuri22 aguenta?</h2>
+            <a class="btn" href="#jogo">Jogar de novo</a>
+        </div>
+    </section>
+    <footer>© 2026 Yuri Shooter · Criado por João Pedro</footer>
+    <script src="recursos.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
